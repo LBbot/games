@@ -14,7 +14,7 @@ def setbet():
 
     try: bet = int(bet)
     except ValueError:
-        print ("You MUST have mistyped. It's okay. We all make mistakes, " + name + ". Please enter a number between 1 and 6.")
+        print ("You MUST 'ave mistyped. It's okay. We all make mistakes, " + name + ". Please enter a number between 1 and 6.")
         return setbet()
 
     if bet < 1 or bet > 6:
