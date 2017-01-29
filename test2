@@ -1,0 +1,13 @@
+pretranslation = input("What number would you like translated to Roman numerals?" + "\n")
+
+romandict = {"1": "I", "2": "II", "3": "III", "4": "IV", "5": "V", "6": "VI", "7": "VII", "VIII": "8", "IX": "9", "0": "X"}
+if pretranslation in romandict:
+    pretranslation = romandict[pretranslation]
+    print(pretranslation)
+else:
+    print("Or not!")
+
+
+x = "foo"
+y = x
+y = "foobar"
