@@ -12,9 +12,11 @@ def setbet():
     if bet in letterednums:
         bet = letterednums[bet]
 
-    try: bet = int(bet)
+    try:
+        bet = int(bet)
     except ValueError:
-        print ("You MUST 'ave mistyped. It's okay. We all make mistakes, " + name + ". Please enter a number between 1 and 6.")
+        print (
+        "You MUST have mistyped. It's okay. We all make mistakes, " + name + ". Please enter a number between 1 and 6.")
         return setbet()
 
     if bet < 1 or bet > 6:
@@ -23,7 +25,7 @@ def setbet():
     return bet
 
 def roll():
-    answer = random.randrange(1,7)
+    answer = random.randrange(1, 7)
     print ("The dice rolls, and it's..." + str(answer) + "!")
     return int(answer)
 
@@ -39,9 +41,10 @@ def game(tries, score):
 
     def replaycheckfunc():
         replaycheck = input("Play again? Yes or no?" + "\n")
-        if replaycheck == "Yes" or replaycheck == "yes" or replaycheck == "y" or replaycheck == "Y":
+
+        if replaycheck.lower() in ["yes", "y"]:
             game(tries, score)
-        elif replaycheck == "No" or replaycheck == "no" or replaycheck == "n" or replaycheck == "N":
+        elif replaycheck.lower() in ["no", "n"]:
             print ("Goodbye, " + name + "!")
             quit()
         else:
@@ -50,4 +53,4 @@ def game(tries, score):
 
     replaycheckfunc()
 
-game(0,0)
+game(0, 0)
