@@ -151,8 +151,7 @@ while True:
         print("You broke the bank. (It is a very small casino.) Please leave the table and cash out. Well done!")
         sys.exit()
 
-    print(cards)
-
+		
     while True:
         replay = input("Would you like to play again? Y/N?\n")
         if replay.lower() in ["yes", "y"]:
