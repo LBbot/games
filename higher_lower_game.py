@@ -1,3 +1,6 @@
+#!bin/env python3
+# higher_lower_game.py - Guessing game that picks a number from 1-10 and tells player if their guess was higher or lower. 
+
 import random
 import time
 
