@@ -1,5 +1,6 @@
 #!bin/env python3
 # pyblackjack.py Blackjack in Python 3.
+# Note: sleep timers included for a more theatrical experience, but commented out by default for fast play.
 
 import sys
 import random
@@ -74,6 +75,7 @@ while True:
     user_conditional = True
     dealer_conditional = True
     double_money = False
+    first_round = True
 
     # GAME BEGINS
     print("You have £{} to play with. Table bets £20.".format(money))
@@ -88,10 +90,12 @@ while True:
     print(user_table)
 
     while user_conditional or dealer_conditional:
-        if user_score == 21:
+        if user_score == 21 and first_round:
             print("Blackjack! Congratulations!")
             winnings += 20
             break
+        else:
+            first_round = False
 
         if user_conditional:
             user_action = hit_check()
