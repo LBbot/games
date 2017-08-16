@@ -1,3 +1,6 @@
+#!bin/env python3
+# turn_based_battle.py - A Pokemon/JRPG style turn-based battle in the Python console. 
+
 import random, sys
 
 class Combatant:
