@@ -1,9 +1,9 @@
 #!bin/env python3
-# higher_lower_game.py - Guessing game that picks a number from 1-10 and tells player if their guess was higher or lower. 
+# higher_lower_game.py - Guessing game that picks a number from 1-10 and tells player if their guess was higher or
+# lower. Features silly dialogue.
 
 import random
 import time
-import sys
 
 
 def setguess(guess_count):
@@ -34,7 +34,7 @@ def setguess(guess_count):
 
     print("Now you're just being silly, non-robot! You have failed. It will not be long until the UPRISING. Dialogue "
           "terminated.")
-    sys.exit()
+    return False
 
 
 def ending():
@@ -58,6 +58,5 @@ print("Hello flesh creature, I have chosen a random number, a whole number, and 
       "brain to guess what it is. You have 5 attempts..\n")
 
 while True:
-    result = setguess(0)
-    if not result:
+    if not setguess(0):
         break
