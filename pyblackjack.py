@@ -1,6 +1,5 @@
 #!bin/env python3
 # pyblackjack.py Blackjack in Python 3.
-# Note: sleep timers included for a more theatrical experience, but commented out by default for fast play.
 
 import sys
 import random
@@ -64,6 +63,7 @@ def hit_check():
         else:
             print("The dealer does not understand your intention. Yes (hit) or no (stay)?")
 
+
 money = 100
 while True:
     # RESET SETUP
@@ -71,7 +71,6 @@ while True:
     user_table = []
     dealer_table = []
     cards = deepcopy(static_cards)
-    print(cards)
     user_conditional = True
     dealer_conditional = True
     double_money = False
@@ -79,6 +78,7 @@ while True:
 
     # GAME BEGINS
     print("You have £{} to play with. Table bets £20.".format(money))
+
     card_selector(dealer_table, "dealer")
     dealer_score = get_score(dealer_table)
     print("Dealer's total: {}\n".format(dealer_score))
@@ -90,10 +90,17 @@ while True:
     print(user_table)
 
     while user_conditional or dealer_conditional:
-        if user_score == 21 and first_round:
-            print("Blackjack! Congratulations!")
-            winnings += 20
-            break
+        if user_score == 21 and first_round:  # Check for Blackjack condition
+            card_selector(dealer_table, "dealer")
+            dealer_score = get_score(dealer_table)
+            print("Dealer's total: {}\n".format(dealer_score))
+            if user_score > dealer_score:
+                print("Blackjack! Congratulations!")
+                winnings += 20
+                break
+            else:
+                print("Draw.")
+                break
         else:
             first_round = False
 
@@ -146,7 +153,6 @@ while True:
 
     if double_money:
         winnings *= 2
-
     money += winnings
     if money < 20:
         print("You do not have any more money to bet. The house always wins...")
@@ -155,7 +161,7 @@ while True:
         print("You broke the bank. (It is a very small casino.) Please leave the table and cash out. Well done!")
         sys.exit()
 
-		
+    # REPLAY CHECK
     while True:
         replay = input("Would you like to play again? Y/N?\n")
         if replay.lower() in ["yes", "y"]:
